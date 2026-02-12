@@ -139,7 +139,7 @@ The backend reads settings from a file named `.env` (it’s in `.gitignore`, so 
 
 4. **Save the file.**
 
-Example `.env` (Supabase, fake password):
+Example `.env` (Supabase, fake password): 
 
 ```env
 PORT=3001
