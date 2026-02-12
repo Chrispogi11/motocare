@@ -22,7 +22,8 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ error: `Password must be at least ${MIN_PASSWORD} characters` });
     }
 
-    const hashed = await bcrypt.hash(password, 10);
+    // bcryptjs does not natively return Promises; use sync helper to avoid undefined hashes
+    const hashed = bcrypt.hashSync(password, 10);
     const { rows } = await pool.query(
       'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email',
       [name.trim(), email.trim().toLowerCase(), hashed]
@@ -50,7 +51,8 @@ router.post('/login', async (req, res) => {
       [email.trim().toLowerCase()]
     );
     const user = rows[0];
-    if (!user || !(await bcrypt.compare(password, user.password))) {
+    // Compare using sync helper for bcryptjs
+    if (!user || !bcrypt.compareSync(password, user.password)) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
