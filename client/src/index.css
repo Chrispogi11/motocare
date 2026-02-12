@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Switzer', sans-serif;
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chillax', sans-serif;
+}
