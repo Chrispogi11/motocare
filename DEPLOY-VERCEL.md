@@ -24,16 +24,23 @@ Your API and database must be online before the frontend can call them.
    - **Runtime:** Node.
    - **Build command:** `npm install`
    - **Start command:** `npm start`
-5. **Environment variables** (Add Environment Variable):
-   - `NODE_ENV` = `production`
-   - `DATABASE_URL` = your Supabase connection string (same as in `server/.env`).
-   - `JWT_SECRET` = same long secret as in `server/.env`.
-   - `PORT` = leave empty (Render sets it).
-6. **Create Web Service**. Wait for the first deploy to finish.
-7. Run the migration against production DB:
+5. **Environment variables**  
+   On the same setup page, scroll to the **Environment** (or **Environment Variables**) section. Add each variable by typing the **Key** and **Value**; Render usually saves each row when you add it. Add these:
+
+   | Variable        | Value | Details |
+   |-----------------|-------|--------|
+   | `NODE_ENV`      | `production` | Tells Node.js this is production. |
+   | `DATABASE_URL`  | Your **full** Supabase Postgres connection string | Supabase → **Connect** → **Session pooler** URI. Replace `[YOUR-PASSWORD]` with your real DB password; if it contains `@`, `#`, or `%`, use `%40`, `%23`, `%25` in the URL. Same string as in `server/.env`. |
+   | `JWT_SECRET`    | A long random string (e.g. 32+ characters) | Same value as in `server/.env`, or generate a new one. Never commit to GitHub. |
+   | `PORT`          | *(leave blank)* | Render sets this automatically; do not add it. |
+
+6. **Create Web Service**  
+   Scroll to the bottom and click the **Create Web Service** button (the main blue/green button that starts the deploy). **Do not** click any link or button that downloads a file (e.g. an HTML file named "New Web Service..."). If something downloads instead of deploying, go back to the Render dashboard, open your service from the list, and use **Manual Deploy** → **Deploy latest commit** from the service page. Env vars are saved when you add them; the deploy just needs to run once.
+7. Wait for the first deploy to finish.
+8. Run the migration against production DB:
    - In Render dashboard, open your service → **Shell** tab (or run locally with `DATABASE_URL` pointing to Supabase).
    - Run: `npm run db:migrate` (from the `server` directory context). If Render doesn’t give a shell, run `npm run db:migrate` locally once with `DATABASE_URL` set to your **production** Supabase URL in `server/.env`).
-8. Copy your service URL, e.g. `https://motocare-api.onrender.com`. No trailing slash. You’ll use this as `VITE_API_URL` in Part 2.
+9. Copy your service URL, e.g. `https://motocare-api.onrender.com`. No trailing slash. You’ll use this as `VITE_API_URL` in Part 2.
 
 ### Option B: Railway
 
