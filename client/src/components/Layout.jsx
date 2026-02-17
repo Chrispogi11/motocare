@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { getAuthUser, setAuth, setAuthUser } from '../api';
 import homeBg from '../assets/homebg.jpg';
+import FredChat from './FredChat';
 
 const BODY_BG_DEFAULT = 'linear-gradient(180deg, #0a0a0a 0%, #000000 100%)';
 
@@ -288,6 +289,8 @@ export default function Layout() {
           MotoCare - Keep your ride maintained.
         </div>
       </footer>
+
+      <FredChat />
 
       <style>{`
         @keyframes slide-in {

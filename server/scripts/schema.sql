@@ -56,3 +56,14 @@ CREATE INDEX IF NOT EXISTS idx_bikes_user ON bikes(user_id);
 CREATE INDEX IF NOT EXISTS idx_services_bike ON services(bike_id);
 CREATE INDEX IF NOT EXISTS idx_mileage_bike ON mileage_logs(bike_id);
 CREATE INDEX IF NOT EXISTS idx_expenses_bike ON expenses(bike_id);
+
+CREATE TABLE IF NOT EXISTS fred_chunks (
+  id SERIAL PRIMARY KEY,
+  content TEXT NOT NULL,
+  embedding JSONB NOT NULL,
+  topic VARCHAR(255),
+  source VARCHAR(255),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_fred_chunks_topic ON fred_chunks(topic);

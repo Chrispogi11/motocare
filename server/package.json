@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node --watch index.js",
     "start": "node index.js",
-    "db:migrate": "node scripts/migrate.js"
+    "db:migrate": "node scripts/migrate.js",
+    "fred:load": "node scripts/load_fred_knowledge.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
