@@ -35,4 +35,10 @@ app.use('/api/fred', fredRoutes);
 
 app.get('/api/health', (_, res) => res.json({ ok: true }));
 
+// Debug: confirm env vars are loaded on Railway
+console.log('HF Token loaded:', process.env.HUGGINGFACE_API_TOKEN
+  ? 'YES (starts with ' + process.env.HUGGINGFACE_API_TOKEN.slice(0, 6) + ')'
+  : 'MISSING');
+console.log('LLM Model:', process.env.FRED_LLM_MODEL || 'using default');
+
 app.listen(PORT, () => console.log(`MotoCare API on http://localhost:${PORT}`));
