@@ -16,9 +16,7 @@ async function fetchEmbedding(text) {
     throw new Error('HUGGINGFACE_API_TOKEN is not configured');
   }
   const response = await fetch(
-    `https://router.huggingface.co/hf-inference/models/${encodeURIComponent(
-      FRED_EMBEDDING_MODEL
-    )}`,
+    `https://router.huggingface.co/pipeline/feature-extraction/${FRED_EMBEDDING_MODEL}`,
     {
       method: 'POST',
       headers: {
