@@ -1,4 +1,5 @@
-const API_BASE = import.meta.env.VITE_API_URL || '';
+const API_BASE = 'https://invigorating-enchantment-production-3ebd.up.railway.app';
+
 
 function getToken() {
   return localStorage.getItem('motocare_token');
