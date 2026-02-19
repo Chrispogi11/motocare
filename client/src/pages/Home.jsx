@@ -6,8 +6,8 @@ const PARTS_BASE = '/images/Homepage/Maintinance%20parts';
 const MAINTENANCE_PARTS = [
   { img: `${PARTS_BASE}/120ml-Petron-Scooter-Gear-Oil.jpg`, name: 'Gear oil' },
   { img: `${PARTS_BASE}/scooter-LE-4T.jpg`, name: 'Engine oil' },
-  { img: `${PARTS_BASE}/Standard-A_500x.webp`, name: 'Brake fluid' },
-  { img: `${PARTS_BASE}/images.jpg`, name: 'Maintenance parts' },
+  { img: `${PARTS_BASE}/Standard-A_500x.webp`, name: 'Spark plug' },
+  { img: `${PARTS_BASE}/images.jpg`, name: 'Brake pads' },
 ];
 
 const SHOP_LINKS = [
